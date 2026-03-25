@@ -206,5 +206,3 @@ MIT
 ## Author
 
 **Zhengchao (Edison) Li**
-M.S., Institute of Science Tokyo — Mathematical Linguistics
-[llee92063@gmail.com](mailto:llee92063@gmail.com)
