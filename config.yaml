@@ -1,0 +1,109 @@
+# =============================================================================
+# Japan NatCat Reinsurance Simulator — Configuration
+# =============================================================================
+
+# --- Data Sources ---
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  reference_dir: "data/reference"
+  # JMA seismic intensity database (yearly ZIP archives)
+  jma_earthquake_url: "https://www.data.jma.go.jp/svd/eqdb/data/shindo/index.html"
+  # RSMC Tokyo best-track data
+  jma_typhoon_url: "https://www.jma.go.jp/jma/jma-eng/jma-center/rsmc-hp-pub-eg/besttrack.html"
+  jma_typhoon_txt_url: "https://www.jma.go.jp/jma/jma-eng/jma-center/rsmc-hp-pub-eg/bstdata/bst_all.zip"
+
+# --- Hazard Model ---
+hazard:
+  # Minimum magnitude / intensity threshold for loss-generating events
+  earthquake_min_magnitude: 5.0
+  earthquake_min_shindo: 5       # JMA intensity scale (5-lower and above)
+  typhoon_min_pressure_hpa: 980  # Central pressure ≤ this → loss-generating
+  typhoon_min_wind_kt: 50        # Max sustained wind ≥ this → loss-generating
+  # Distribution fitting
+  severity_distribution: "lognormal"   # "lognormal" or "gpd"
+  frequency_distribution: "poisson"
+
+# --- Loss Model ---
+loss:
+  # Vulnerability curve parameters (sigmoid: damage_ratio = 1 / (1 + exp(-k*(x - x0))))
+  earthquake_vulnerability:
+    k: 1.5        # Steepness
+    x0: 6.0       # Midpoint (JMA intensity)
+    cap: 0.35     # Maximum damage ratio
+  typhoon_vulnerability:
+    k: 0.08       # Steepness (wind speed in kt)
+    x0: 75.0      # Midpoint (wind speed in kt)
+    cap: 0.25     # Maximum damage ratio
+
+# --- Monte Carlo Simulation ---
+simulation:
+  n_years: 10000
+  random_seed: 42
+
+# --- Reinsurance Structures ---
+reinsurance:
+  programs:
+    # Program A: Pure XoL tower
+    program_a:
+      name: "XoL Tower (3 layers)"
+      layers:
+        - type: "xol"
+          attachment: 10.0   # ¥10B
+          limit: 20.0        # ¥20B  (10 xs 10)
+          description: "Layer 1: ¥20B xs ¥10B"
+        - type: "xol"
+          attachment: 30.0   # ¥30B
+          limit: 50.0        # ¥50B  (50 xs 30)
+          description: "Layer 2: ¥50B xs ¥30B"
+        - type: "xol"
+          attachment: 80.0   # ¥80B
+          limit: 120.0       # ¥120B (120 xs 80)
+          description: "Layer 3: ¥120B xs ¥80B"
+
+    # Program B: Quota Share only
+    program_b:
+      name: "Quota Share 30%"
+      layers:
+        - type: "qs"
+          cession_pct: 0.30
+          description: "30% Quota Share"
+
+    # Program C: Blended (QS + XoL)
+    program_c:
+      name: "QS 20% + XoL (2 layers)"
+      layers:
+        - type: "qs"
+          cession_pct: 0.20
+          description: "20% Quota Share (applied first)"
+        - type: "xol"
+          attachment: 15.0
+          limit: 35.0
+          description: "Layer 1: ¥35B xs ¥15B (on net after QS)"
+        - type: "xol"
+          attachment: 50.0
+          limit: 100.0
+          description: "Layer 2: ¥100B xs ¥50B (on net after QS)"
+
+    # Program D: Higher-attaching single XoL
+    program_d:
+      name: "Cat XoL (single layer, high attach)"
+      layers:
+        - type: "xol"
+          attachment: 50.0
+          limit: 150.0
+          description: "¥150B xs ¥50B"
+
+# --- Pricing ---
+pricing:
+  loading_factor: 1.35        # Technical premium = EL × loading
+  expense_ratio: 0.05         # 5% expense loading on top
+  profit_margin: 0.10         # 10% target profit margin
+  risk_free_rate: 0.005       # For investment income adjustment
+
+# --- Output ---
+output:
+  figures_dir: "outputs/figures"
+  reports_dir: "outputs/reports"
+  dpi: 150
+  figure_style: "seaborn-v0_8-whitegrid"

@@ -1,0 +1,39 @@
+storm_id,name,year,min_pressure_hpa,max_wind_kt,n_track_points,landfall_japan,region_affected
+5915,VERA,1959,895,130,42,Yes,Kinki/Tokai (Isewan Typhoon)
+6118,NANCY,1961,888,165,48,Yes,Kinki/Chubu (2nd Muroto)
+6526,IDA,1965,945,85,35,Yes,Kanto
+6615,CORA,1966,940,90,38,Yes,Kinki
+7920,TIP,1979,870,165,52,No,Pacific (record lowest pressure)
+8213,FORREST,1982,885,130,45,No,Pacific
+8506,PAT,1985,940,95,30,Yes,Kyushu
+9019,FLO,1990,890,125,50,Yes,Kinki/Kanto
+9113,MIREILLE,1991,925,105,44,Yes,Kyushu/Shikoku (strongest landfall wind)
+9313,YANCY,1993,895,125,40,Yes,Kyushu
+9918,BART,1999,930,100,38,Yes,Kyushu/Kinki
+418,SONGDA,2004,925,105,42,Yes,Kyushu/Chugoku
+423,TOKAGE,2004,940,80,36,Yes,Shikoku/Kinki
+514,NABI,2005,920,110,44,Yes,Kyushu
+613,SHANSHAN,2006,930,100,40,Yes,Kyushu
+704,MAN-YI,2007,960,70,32,Yes,Kinki/Kanto
+913,MELOR,2009,940,95,40,Yes,Kinki/Kanto
+1112,TALAS,2011,970,60,46,Yes,Kinki (record rainfall)
+1217,JELAWAT,2012,910,125,50,Yes,Okinawa
+1230,BOPHA,2012,930,105,42,No,Pacific
+1326,WIPHA,2013,960,75,36,Yes,Kanto
+1411,HALONG,2014,920,115,48,Yes,Shikoku/Kinki
+1418,PHANFONE,2014,950,85,38,Yes,Kinki/Kanto
+1511,NANGKA,2015,930,100,42,Yes,Shikoku/Kinki
+1610,LIONROCK,2016,940,95,52,Yes,Tohoku (rare Pacific→Japan Sea track)
+1721,LAN,2017,925,105,44,Yes,Kinki/Kanto
+1821,JEBI,2018,915,115,40,Yes,Kinki (strongest Kansai landfall since 1993)
+1824,TRAMI,2018,915,115,44,Yes,Okinawa/Kinki/Kanto
+1915,FAXAI,2019,955,85,30,Yes,Kanto (Chiba major damage)
+1919,HAGIBIS,2019,905,135,52,Yes,Kanto/Tohoku (record rainfall & flood)
+2009,MAYSAK,2020,935,95,40,Yes,Kyushu
+2010,HAISHEN,2020,920,115,48,Yes,Kyushu
+2114,CHANTHU,2021,910,125,50,No,Okinawa
+2214,NANMADOL,2022,910,120,46,Yes,Kyushu (strongest 2022)
+2302,MAWAR,2023,900,140,56,No,Guam/Okinawa
+2307,LAN,2023,945,90,38,Yes,Kinki
+2407,AMPIL,2024,960,75,34,No,Pacific/East Japan
+2410,SHANSHAN,2024,935,100,42,Yes,Kyushu (severe flooding)
