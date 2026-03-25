@@ -190,11 +190,6 @@ Change any value and re-run `python run_demo.py` to regenerate all outputs.
 
 ---
 
-## Related Projects
-
-- [Global LNG Arbitrage Monitor](https://github.com/EdisonLee9111/Global-LNG-Arbitrage-Monitor) — Cross-market energy price spread analysis
-- [LNG Market Topology](https://github.com/EdisonLee9111/LNG-Market-Topology) — Constraint-based counterparty behavior inference
-
 ---
 
 ## License
