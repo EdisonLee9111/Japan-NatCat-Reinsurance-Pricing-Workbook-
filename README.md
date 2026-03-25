@@ -190,14 +190,8 @@ Change any value and re-run `python run_demo.py` to regenerate all outputs.
 
 ---
 
----
 
 ## License
 
 MIT
 
----
-
-## Author
-
-**Zhengchao (Edison) Li**
